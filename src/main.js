@@ -8,6 +8,7 @@ import Home from './components/home/Home.vue';
 import About from './components/about/About.vue';
 import ArticleDetail from './components/article-detail/ArticleDetail.vue';
 import ArticleEditor from './components/article-editor/ArticleEditor.vue';
+import Signup from './components/signup/Signup'
 
 Vue.config.productionTip = false
 
@@ -28,6 +29,12 @@ const routes = [{
   name: "detail",
   path: '/article/:articleId',
   component: ArticleDetail,
+  props: true //this enables route params
+},
+{
+  name: "signup",
+  path: '/signup',
+  component: Signup,
   props: true //this enables route params
 }
 ];

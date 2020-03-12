@@ -1,3 +1,3 @@
 module.exports = {
-    apiUrl: 'https://example-api4.glitch.me/api'
+    apiUrl: 'http://localhost:3000/v1'
   }
