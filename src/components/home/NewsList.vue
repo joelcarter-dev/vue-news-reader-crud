@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link :to="'/article-editor'">Add Article</router-link>
+    <router-link v-if="isLogedIn" :to="'/article-editor'">Add Article</router-link>
     <div v-for="article in articles" :key="article.id">
       <div>
         <router-link :to="{
@@ -23,6 +23,7 @@
 
 <script>
 import axios from "axios";
+import * as authService from "../../services/auth-service.js"
 
 const apiBaseUrl = 'https://example-api4.glitch.me/api';
 
@@ -30,7 +31,8 @@ export default {
   name: "NewsList",
   data: function() {
     return {
-      articles: []
+      articles: [],
+      isLogedIn: false
     };
   },
   methods: {
@@ -59,6 +61,7 @@ export default {
   },
   created: async function() {
     this.articles = await this.getArticles();
+    this.isLogedIn = authService.isLogedIn()
   }
 };
 </script>
